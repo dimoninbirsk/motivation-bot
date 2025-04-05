@@ -1,4 +1,5 @@
 using MotivationBot.Domain;
+using MotivationBot.Features.GetQuote;
 
 namespace MotivationBot
 {
@@ -22,15 +23,10 @@ namespace MotivationBot
 
             app.UseAuthorization();
 
-            var quotes = new List<Quote>
-            {
-                new(){ Id = 1,Author = "Гоггинс", Text = "Устал? Отлично. Значит, ты наконец-то начал работать.", Tags = ["Усталость"]},
-                new(){ Id = 2,Author = "Гоггинс", Text = "ВСТАВАЙ! ТЫ ПРОСРАЛ УТРО!.", Tags = ["Утро"]}
-            };
-
             app.MapGet("/give", (HttpContext httpContext) =>
             {
-                return quotes[Random.Shared.Next(quotes.Count)];
+                GetQuote quoteGen = new();
+                return quoteGen.Get();
             })
             .WithName("Give Quote");
 

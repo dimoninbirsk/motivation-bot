@@ -1,6 +1,6 @@
 ﻿namespace MotivationBot.Domain;
 
-internal record Quote
+public record Quote
 {
     public int Id { get; set; }
     public string Author { get; set; } = string.Empty;

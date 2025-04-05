@@ -1,0 +1,6 @@
+@MotivationBot_HostAddress = http://localhost:5198
+
+GET {{MotivationBot_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
